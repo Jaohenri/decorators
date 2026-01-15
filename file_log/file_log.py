@@ -4,8 +4,8 @@ import time
 def file_log(func):
     """Registers the execution of a funcion in a log file"""
     def wrapper(*args, **kwargs):
-        
-        with open("file_log/log.txt", "a") as file:
+
+        with open("file_log/log.txt", "a", encoding="utf-8") as file:
             func(*args, **kwargs)
             times = time.strftime("%d-%m-%Y %H:%M:%S")
             file.write(f"[{times}] The function <{func.__name__}> was executed.\n")
